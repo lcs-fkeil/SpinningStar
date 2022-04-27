@@ -28,7 +28,10 @@ struct ContentView: View {
         
             // 2. Trigger the state change with a tap
             .onTapGesture {
-                withAnimation{
+                withAnimation(
+                    Animation
+                        .easeInOut(duration: 2.0)
+                ){
                     // 3. Rotate the star twice (change rotation state)
                     starRotation += 360.0 * 2
                 }
