@@ -15,6 +15,9 @@ struct ContentView: View {
     // 1. Initial state of rotation for the star
     @State var starRotation = 0.0
     
+    // 1. Initial opacity fo unfilled star
+    @State var unfilledStarOpacity = 1.0
+    
     
     // MARK: Computed properties
     
@@ -25,6 +28,7 @@ struct ContentView: View {
             .foregroundColor(.yellow)
             .rotation3DEffect(.degrees(starRotation),
                               axis: (x: 0, y: 1, z: 0))
+            .opacity(unfilledStarOpacity)
         
             // 2. Trigger the state change with a tap
             .onTapGesture {
@@ -34,6 +38,9 @@ struct ContentView: View {
                 ){
                     // 3. Rotate the star twice (change rotation state)
                     starRotation += 360.0 * 2
+                    
+                    // 3. Desired end opacity for unfilled star
+                    unfilledStarOpacity = 0.0
                 }
                 
             }
