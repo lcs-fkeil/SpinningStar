@@ -25,11 +25,14 @@ struct ContentView: View {
             .foregroundColor(.yellow)
             .rotation3DEffect(.degrees(starRotation),
                               axis: (x: 0, y: 1, z: 0))
-            .animation(.default)
+        
             // 2. Trigger the state change with a tap
             .onTapGesture {
-                // 3. Rotate the star twice (change rotation state)
-                starRotation += 360.0 * 2
+                withAnimation{
+                    // 3. Rotate the star twice (change rotation state)
+                    starRotation += 360.0 * 2
+                }
+                
             }
     }
 }
